@@ -15,8 +15,10 @@ The projects are organized into folders named according to their exercise number
 - **ex05_personal_data**: A project that manages personal data such as phone numbers and emails, emphasizing string manipulation and formatting.
 - **ex06_dictionaries**: Airport timetable project that utilizes dictionaries for data storage and manipulation of time-related information.
 - **ex07_regex**: Applying regular expressions for pattern matching and validating input formats such as emails and phone numbers.
+- **ex08_rexursion**: A module demonstrating problem-solving techniques using recursion.
 
 ### Optional Projects (Advanced)
+
 - **op_projects**: Contains optional exercises that go beyond the basics and involve more advanced problem-solving tasks. These projects focus on integrating various concepts such as data manipulation, file handling, and complex logic.
 
 ## Getting Started
@@ -27,3 +29,4 @@ To access these projects:
    If you haven’t already cloned the repository, use:
    ```bash
    git clone https://github.com/TheGigaChat/Python-challenges
+   ```
