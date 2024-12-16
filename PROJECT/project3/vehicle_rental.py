@@ -293,9 +293,6 @@ class VehicleRental:
         if not vehicle or not client or not date:
             return False
 
-        # if not check_date(date):
-        #     return False
-
         if date is None:
             return False
 
