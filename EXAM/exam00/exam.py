@@ -443,149 +443,149 @@ class Hotel:
         return max(features_prices, key=lambda feature: (features_prices[feature], -ord(feature[0])))
 
 
-# if __name__ == '__main__':
-#     # Rooms check
-#     def test_add_feature():
-#         room = Room(101, 100)
-#         assert room.add_feature("WiFi") == True  # Add new feature
-#         assert room.add_feature("WiFi") == False  # Adding duplicate feature
-#         room.is_booked = True
-#         assert room.add_feature("Pool") == False  # Cannot add feature to booked room
-#
-#     test_add_feature()
-#
-#     def test_get_features():
-#         room = Room(102, 150)
-#         room.add_feature("TV")
-#         room.add_feature("AC")
-#         assert set(room.get_features()) == {"TV", "AC"}  # Verify all added features
-#
-#     test_get_features()
-#
-#     def test_get_price_and_number():
-#         room = Room(103, 200)
-#         assert room.get_price() == 200
-#         assert room.get_number() == 103
-#
-#     test_get_price_and_number()
-#
-#     # Hotel check
-#     def test_add_room():
-#         hotel = Hotel()
-#         room1 = Room(101, 100)
-#         room2 = Room(102, 150)
-#         assert hotel.add_room(room1) == True  # Room added successfully
-#         assert hotel.add_room(room1) == False  # Duplicate room
-#         assert hotel.add_room(room2) == True  # Another room added successfully
-#
-#     test_add_room()
-#
-#     def test_book_room():
-#         hotel = Hotel()
-#         room1 = Room(101, 100)
-#         room2 = Room(102, 150)
-#         room3 = Room(103, 120)
-#         room1.add_feature("WiFi")
-#         room1.add_feature("AC")
-#         room2.add_feature("WiFi")
-#         room2.add_feature("TV")
-#         room3.add_feature("Pool")
-#
-#         hotel.add_room(room1)
-#         hotel.add_room(room2)
-#         hotel.add_room(room3)
-#
-#         # Book based on features
-#         booked_room = hotel.book_room(["WiFi", "AC"])
-#         assert booked_room == room1  # Room 1 has the most matching features
-#         assert room1.is_booked == True  # Room 1 is now booked
-#
-#         # Try booking again (Room 1 is booked, so Room 2 should be picked)
-#         booked_room = hotel.book_room(["WiFi"])
-#         assert booked_room == room2  # Room 2 matches and is available
-#         assert room2.is_booked == True
-#
-#     test_book_room()
-#
-#     def test_get_available_rooms():
-#         hotel = Hotel()
-#         room1 = Room(101, 100)
-#         room2 = Room(102, 150)
-#         room1.is_booked = True
-#         hotel.add_room(room1)
-#         hotel.add_room(room2)
-#         available_rooms = hotel.get_available_rooms()
-#         assert available_rooms == [room2]  # Only Room 2 is available
-#
-#     test_get_available_rooms()
-#
-#
-#     def test_get_feature_profits():
-#         hotel = Hotel()
-#         room1 = Room(101, 100)
-#         room2 = Room(102, 200)
-#         room3 = Room(103, 150)
-#         room1.add_feature("WiFi")
-#         room1.add_feature("AC")
-#         room2.add_feature("WiFi")
-#         room2.add_feature("TV")
-#         room3.add_feature("Pool")
-#         room3.add_feature("AC")
-#
-#         hotel.add_room(room1)
-#         hotel.add_room(room2)
-#         hotel.add_room(room3)
-#
-#         room1.is_booked = True
-#         room2.is_booked = True
-#         room3.is_booked = True
-#
-#         feature_profits = hotel.get_feature_profits()
-#         expected_profits = {
-#             "WiFi": 300,  # Room 1 (100) + Room 2 (200)
-#             "AC": 250,  # Room 1 (100) + Room 3 (150)
-#             "TV": 200,  # Room 2 (200)
-#             "Pool": 150,  # Room 3 (150)
-#         }
-#         assert feature_profits == expected_profits
-#
-#     test_get_feature_profits()
-#
-#     def test_get_most_profitable_feature():
-#         hotel = Hotel()
-#         room1 = Room(101, 100)
-#         room2 = Room(102, 200)
-#         room1.add_feature("WiFi")
-#         room2.add_feature("WiFi")
-#         room2.add_feature("TV")
-#         hotel.add_room(room1)
-#         hotel.add_room(room2)
-#         room1.is_booked = True
-#         room2.is_booked = True
-#         assert hotel.get_most_profitable_feature() == "WiFi"  # WiFi profits 300 vs TV profits 200
-#
-#     test_get_most_profitable_feature()
-#
-#     # Edge cases
-#     def test_book_room_no_available_rooms():
-#         hotel = Hotel()
-#         room1 = Room(101, 100)
-#         room1.is_booked = True
-#         hotel.add_room(room1)
-#         assert hotel.book_room(["WiFi"]) == None  # No rooms available
-#
-#     test_book_room_no_available_rooms()
-#
-#     def test_get_most_profitable_feature_tie():
-#         hotel = Hotel()
-#         room1 = Room(101, 100)
-#         room2 = Room(102, 100)
-#         room1.add_feature("WiFi")
-#         room2.add_feature("AC")
-#         hotel.add_room(room1)
-#         hotel.add_room(room2)
-#         room1.is_booked = True
-#         room2.is_booked = True
-#         assert hotel.get_most_profitable_feature() == "AC"  # AC and WiFi tie, but AC is alphabetically smaller
-#
-#     test_get_most_profitable_feature_tie()
+if __name__ == '__main__':
+    # Rooms check
+    def test_add_feature():
+        room = Room(101, 100)
+        assert room.add_feature("WiFi") == True  # Add new feature
+        assert room.add_feature("WiFi") == False  # Adding duplicate feature
+        room.is_booked = True
+        assert room.add_feature("Pool") == False  # Cannot add feature to booked room
+
+    test_add_feature()
+
+    def test_get_features():
+        room = Room(102, 150)
+        room.add_feature("TV")
+        room.add_feature("AC")
+        assert set(room.get_features()) == {"TV", "AC"}  # Verify all added features
+
+    test_get_features()
+
+    def test_get_price_and_number():
+        room = Room(103, 200)
+        assert room.get_price() == 200
+        assert room.get_number() == 103
+
+    test_get_price_and_number()
+
+    # Hotel check
+    def test_add_room():
+        hotel = Hotel()
+        room1 = Room(101, 100)
+        room2 = Room(102, 150)
+        assert hotel.add_room(room1) == True  # Room added successfully
+        assert hotel.add_room(room1) == False  # Duplicate room
+        assert hotel.add_room(room2) == True  # Another room added successfully
+
+    test_add_room()
+
+    def test_book_room():
+        hotel = Hotel()
+        room1 = Room(101, 100)
+        room2 = Room(102, 150)
+        room3 = Room(103, 120)
+        room1.add_feature("WiFi")
+        room1.add_feature("AC")
+        room2.add_feature("WiFi")
+        room2.add_feature("TV")
+        room3.add_feature("Pool")
+
+        hotel.add_room(room1)
+        hotel.add_room(room2)
+        hotel.add_room(room3)
+
+        # Book based on features
+        booked_room = hotel.book_room(["WiFi", "AC"])
+        assert booked_room == room1  # Room 1 has the most matching features
+        assert room1.is_booked == True  # Room 1 is now booked
+
+        # Try booking again (Room 1 is booked, so Room 2 should be picked)
+        booked_room = hotel.book_room(["WiFi"])
+        assert booked_room == room2  # Room 2 matches and is available
+        assert room2.is_booked == True
+
+    test_book_room()
+
+    def test_get_available_rooms():
+        hotel = Hotel()
+        room1 = Room(101, 100)
+        room2 = Room(102, 150)
+        room1.is_booked = True
+        hotel.add_room(room1)
+        hotel.add_room(room2)
+        available_rooms = hotel.get_available_rooms()
+        assert available_rooms == [room2]  # Only Room 2 is available
+
+    test_get_available_rooms()
+
+
+    def test_get_feature_profits():
+        hotel = Hotel()
+        room1 = Room(101, 100)
+        room2 = Room(102, 200)
+        room3 = Room(103, 150)
+        room1.add_feature("WiFi")
+        room1.add_feature("AC")
+        room2.add_feature("WiFi")
+        room2.add_feature("TV")
+        room3.add_feature("Pool")
+        room3.add_feature("AC")
+
+        hotel.add_room(room1)
+        hotel.add_room(room2)
+        hotel.add_room(room3)
+
+        room1.is_booked = True
+        room2.is_booked = True
+        room3.is_booked = True
+
+        feature_profits = hotel.get_feature_profits()
+        expected_profits = {
+            "WiFi": 300,  # Room 1 (100) + Room 2 (200)
+            "AC": 250,  # Room 1 (100) + Room 3 (150)
+            "TV": 200,  # Room 2 (200)
+            "Pool": 150,  # Room 3 (150)
+        }
+        assert feature_profits == expected_profits
+
+    test_get_feature_profits()
+
+    def test_get_most_profitable_feature():
+        hotel = Hotel()
+        room1 = Room(101, 100)
+        room2 = Room(102, 200)
+        room1.add_feature("WiFi")
+        room2.add_feature("WiFi")
+        room2.add_feature("TV")
+        hotel.add_room(room1)
+        hotel.add_room(room2)
+        room1.is_booked = True
+        room2.is_booked = True
+        assert hotel.get_most_profitable_feature() == "WiFi"  # WiFi profits 300 vs TV profits 200
+
+    test_get_most_profitable_feature()
+
+    # Edge cases
+    def test_book_room_no_available_rooms():
+        hotel = Hotel()
+        room1 = Room(101, 100)
+        room1.is_booked = True
+        hotel.add_room(room1)
+        assert hotel.book_room(["WiFi"]) == None  # No rooms available
+
+    test_book_room_no_available_rooms()
+
+    def test_get_most_profitable_feature_tie():
+        hotel = Hotel()
+        room1 = Room(101, 100)
+        room2 = Room(102, 100)
+        room1.add_feature("WiFi")
+        room2.add_feature("AC")
+        hotel.add_room(room1)
+        hotel.add_room(room2)
+        room1.is_booked = True
+        room2.is_booked = True
+        assert hotel.get_most_profitable_feature() == "AC"  # AC and WiFi tie, but AC is alphabetically smaller
+
+    test_get_most_profitable_feature_tie()
