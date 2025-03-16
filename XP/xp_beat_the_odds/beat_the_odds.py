@@ -276,3 +276,4 @@ if __name__ == '__main__':
     guessed_letters = ['t']
     word_frequencies = {'term': 3, 'is': 1, 'of': 1, 'that': 4, 'test': 5, 'thin': 2, 'tide': 2}
     print(guess(sentence, guessed_letters, word_frequencies))
+    
